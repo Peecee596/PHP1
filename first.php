@@ -231,38 +231,395 @@ function wow($a)
 
 ?>
 
+<?php
+function testing(&$string)
+
+{
+	$string.="hello";
+}
+$str="This is a string";
+testing($str);
+echo $str;
+
+?>
+
+
+<?php
+
+function first ($num)
+{
+	$num+=5;
+}
+function second(&$num)
+{
+	$num+=10;
+}
+$num=10;
+first($num);
+
+echo "Orginal value is $num <br>";
+second($num);
+echo "Value is $num <br>";
+
+?>
+
+<?php
+function wowwow($name)
+{
+	echo $name."Hello";
+}
+$func="wowwow";
+$func("Yahhoo Baba");
+
+?>
+
+<?php
+
+$sayHello=function($name)
+{
+	echo "hello $name <br>";
+};
+$sayHello("Yahoo Baba");
+
+
+?>
+
+
+<?php
+
+$colors=["red","pink","yellow","orange"];
+echo "<ul>";
+for($i=0;$i<=3;$i++) 
+{
+	echo "<li> $colors[$i]<br> </li>";
+}
+echo "</ul>";
+echo "<pre>";
+print_r($colors);
+echo"</pre>";
 
 
 
 
+?>
+
+
+<?php
+
+$colors=["red","pink","yellow"];
+foreach($colors as $value)
+{
+	echo $value ."<br>";
+}
+?>
+
+<?php
+$age=["bill"=>25,"steve"=>28,"elon"=>45];
+echo "<ul>";
+foreach($age as $key=>$value)
+{
+	echo "<li> $key=$value </li><br> ";
+}
+echo "</ul>";
+
+?>
+<?php
+
+$emp=
+[
+["1","Krishna","Manager",5000],
+["2","Salman","SalesManager",6000],
+["3","Mohan","Computer Operator",7000],
+["4","Amir","Driver",5000]
+];
+echo "<table border='2px' cellpadding='5px' cellspacing ='0px'>";
+
+echo"<tr>
+	
+<th>EMP ID</th>
+<th>NAME</th>
+<th>DESIGNATION</th>
+<th>SALARY</th>
+</tr>";
+foreach($emp as $value1)
+{
+	echo"<tr>";
+	foreach($value1 as $value2)
+	{
+		echo"<td> $value2 </td>";
+	}
+	echo"</tr>";
+}
+
+echo"</table>";
 
 
 
 
+for($i=0;$i<=3;$i++)
+{
+	for ($j=0;$j<=3;$j++)
+	{
+		echo $emp[$i][$j] ." ";
+	}
+	echo "<br>";
+}
+echo "<br>";
+echo $emp[1][2];
+echo "<pre>";
+print_r($emp);
+echo"</pre>";
+?>
+
+
+
+<?php
+$marks=
+[
+		"Kia"=>[
+				"Phy"=>67,
+				"Chem"=>89,
+				"Math"=>89
+				],
+		"Sia"=>[
+				"Phy"=>78,
+				"Chem"=>67,
+				"Math"=>78
+				],
+		"Pia"=>[
+				"Phy"=>62,
+				"Chem"=>89,
+				"Math"=>98
+				]
+];
+echo"<table border ='2px' cellpadding='2px' cellspacing='0px'>";
+echo "<tr>
+	<th>Name</th>
+	<th>Phy</th>
+	<th>Chem</th>
+	<th>Math</th>
+	</tr>";
+
+foreach($marks as $key=>$val1)
+{
+	echo "<tr>";
+	echo "<td> $key </td>";
+	foreach($val1 as $val2)
+	{
+		echo "<td> $val2 </td>";
+	}
+	echo"</tr>";
+}
+
+
+echo"</table>";
+
+?>
+
+<?php
+
+$employee=
+[
+	[1,"A","X",50000],
+	[2,"B","Y",20000],
+	[3,"C","Z",70000]
+];
+echo "<table border='1px' cellspacing='0px' cellpadding='2px'>";
+
+echo"<tr>
+		<th>Emp ID</th>
+		<th>Emp Name</th>
+		<th>Emp Designation</th>
+		<th>Emp Salary</th>
+	</tr>";
+foreach($employee as list($p,$r,$s,$t))
+{
+	
+	echo "	
+	<tr>
+			<td align='center'>$p</td>
+			<td align='center'>$r</td>
+			<td align='center'>$s</td>
+			<td align='center'>$t</td>
+	</tr>";
+}
+echo "</table"
+?>
+<br/>
+
+<?php
+$employees=
+[
+	//
+		[
+			"Emp No"=>1,
+			"Name"=>"Poonam",
+			"Designation"=>"OM",
+			"Salary"=>40000
+		],
+	//"J"=>
+		[
+			"Emp No"=>2,
+			"Name"=>"Archana",
+			"Designation"=>"SM",
+			"Salary"=>60000
+		],
+	//"K"=>
+		[
+			"Emp No"=>3,
+			"Name"=>"Keyur",
+			"Designation"=>"SSC",
+			"Salary"=>45000
+		]
+];
+echo'<table border="2px" cellpadding="2px"cellspacing="0px">';
+echo"<tr>
+	<th>Emp Id</th>
+	<th>Name</th>
+	<th>Designation</th>
+	<th>salary</th>
+
+</tr>";
+foreach($employees as list ("Emp No"=>$w,
+							"Name"=>$y,
+							"Designation"=>$z,
+							"Salary"=>$g))
+{
+	echo "<tr>
+			<td>$w</td>
+			<td>$y</td>
+			<td>$z</td>
+			<td>$g</td>
+		</tr>";
+}
+
+echo"</table>"
+?>
+<br/>
+
+<?php
+
+$food=["orange","apple","banana"];
+echo count($food);
+echo sizeof($food);
+echo "<pre>";
+print_r(array_count_values($food));
+echo "</pre>";
+echo"<br>";
+$len=count($food);
+for($i=0;$i<$len;$i++)
+{
+	echo "$food[$i] <br>";
+}
+
+
+?>
+<br/>
+
+<?php
+$foods=[
+	'fruits'=>['orange','banana','apple'],
+	'veggies'=>['carrot','collard','pea']
+];
+echo count($foods);
+echo sizeof($foods);
+echo count($foods,1);//op-8
+echo sizeof($foods,1);//op-8
+
+print_r(array_count_values($foods));
+?>
+
+
+
+<br/>
+<?php
+$a=["orange","Poonam","Carrot","Sushil"];
+echo in_array("orange",$a);
+if(in_array("Poona",$a,true))
+{
+	echo "Find Successfully";	
+}
+else
+{
+	echo "Cant find";
+}
+?>
+
+<?php
+$zen=[
+	["a","b","c","d"],
+	["z"."x","n","m"],
+	["s","f","g","h"]
+];
+echo in_array("a",$zen);
+echo in_array(["a","b","c","d"],$zen);
+echo array_search("f",$zen);
+//if(in_array)
+?>
+
+<?php
+$den=['a'=>'orange',
+	'b'=>'banana',
+	'c'=>'origin'	
+	];
+echo array_search('orange',$den);	
+
+
+
+?>
+
+
+<?php
+
+$fruitella=["zxc","asd","qwe"];
+$veggitella=["fgh","hjk","iyiiiu","oklop","opopo"];
+
+$newarray=array_replace($fruitella,$veggitella);
+echo "<pre>";
+print_r($newarray);
+echo"</pre>";
+
+?>
+
+<?php
+$tellafruit=["rtr",1=>"yuyu","yuo"];
+$tellaveggie=[1=>"gff","hjh","788"];
+
+$new1=array_replace($tellafruit,$tellaveggie);
+print_r($new1);
+
+?>
+
+<?php
+
+$tyuty=["sds","rtrtr",1=>"uiuiui"];
+$tyte=["sdsa","hjhjhj"];
+$new2=array_replace($tyuty, $tyte);
+echo"<pre>";
+print_r($new2);
+echo"</pre>";
+?>
+
+<?php
+
+$you=[
+		["red"],
+		["green","pink"]
+	];
+$us=[
+		["yellow"],
+		["black"]
+	];
+
+$new3=array_replace($you, $us);
+echo"<pre>";
+print_r($new3);
+echo"</pre>";
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+?>
 
 
 
