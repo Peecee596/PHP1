@@ -336,28 +336,57 @@ echo"</pre>";
 
 <!-- array_slice
 -- its just like picking up the cake slice
+--o/p comes under new array
 --3 parameters r reuired||array,start,length
---4th parameter is true
+--4th parameter is true....then the index number will not change
 --works with index array and associtive array
 --positive number index, it just picks the elements as per the length and share us the same.
---
+---ve number index,it pickups the elements as per the length 
+--in +ve and -ve index both start elements is also inculded in the new array ie. in the output
+--if its with 2 parameter, then the new array start with the 0 index
+--if is an asscoitive array then, 4th pararameter can be ignored because nyways the o/p will be with key=>value
 -->
+
+2 parameter/+ve num as Index no
 <?php
 $a4=["jhdh","hjh","jk","fhhj"];
 $new89=array_slice($a4,1,2);
 print_r($new89);
+echo"<br>";
+$new78=array_slice($a4,1,2,true);
+print_r($new78);
+echo"<br>";
 ?>
+
+2 parameter/-ve num as Index no
+<?php
+$new90=array_slice($a4,-2,2);
+print_r($new90);
+
+?>
+
+//Asscociative array with 3 parameters
+
 
 <?php
+$x=[
+        "pia"=>100,
+        "gia"=>"tyu",
+        "love"=>"poiu"
+    ];
 
-
-
-
+    $newarray=array_slice($x,1,2);
+    echo"<pre>";
+    print_r($newarray);
+    echo"</pre>";
 
 ?>
 
+<!-- arry_splice
 
 
+
+ -->
 
 
 
