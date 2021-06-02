@@ -221,7 +221,7 @@ echo "<br>";
 --array_replace($array1,$array2)
 
  -->
-
+jhjhjhj
 <?php
 //index array example
 $hshd=["hhj","hjj","kjkj","jkk"];
@@ -257,6 +257,7 @@ echo"</pre>";
 print_function
 
  -->
+ kssdm,sm,sm
 <?php
 $ghgh=[
         "A"=>["kajksj"],
@@ -383,13 +384,110 @@ $x=[
 ?>
 
 <!-- arry_splice
-
-
-
+--changes are done in the existing array
+--Replace/Adds/Removes elements from the existing array
+--replace function directly replaces with the index/ key wherever matches but 
+--print_r function is used to print the o/p and 1st array is used for printing.
+--
+4parameters-
+    -syntax-array_slice($array1,start,length,$array2)
+    -4 parameters -2 arrays will be there
+    -Print-print_r($array1);
+    -index no is given negative or positive it will replace from that particular index no.
+    -O/P-Replaces with the given index and as per the length
+    -negative length is given it doesnt replaces whaeas its just insert the data from the index no
+3parameters-
+    -syntax-array_slice($array1,start,length)
+    -3 parameters-1 array will be there
+    -exiting array 
+    -given index no is negative or positive , it will delete the elements of the array as the values for replacing is not there 
+    -O/P-deletes the elements from the given index no and till the length
+    -if given length is negative then, it calculates backwards and deletes the index no element and consider till the length given backwards
+2parameters-
+    -index no +ve-->deletes the element from that given index
+    -index no-ve-->deletes the elemnet from that given index
+    --doesnt matter +ve or -ve index no.
  -->
 
 
+<?php
+//4 parameters
+$a78=["kjh","hjhj","hujk"];
+$b90=["Orange","Apple"];
+array_splice($a78,1,2,$b90);
+echo"<pre>";
 
+print_r($a78);
+echo"</pre>";
+
+$a70=["kjh","hjhj","hujk"];
+$b99=["Orange","Apple"];
+array_splice($a70,0,2,$b99);
+echo"<pre>";
+print_r($a70);
+echo"</pre>";
+
+$a71=["kjh","hjhj","hujk"];
+$b92=["Orange","Apple"];
+array_splice($a71,-2,2,$b92);
+echo"<pre>";
+print_r($a71);
+echo"</pre>";
+echo"Poonam";
+$a76=["kjh","hjhj","hujk"];
+$b93=["Orange","Apple"];
+array_splice($a76,2,-3,$b93);//negative length doesnt replaces whaeas its just insert the data from the index no
+echo"<pre>";
+print_r($a76);
+echo"</pre>";
+
+
+?>
+
+//3 parameters
+<?php
+$a51=["kjh","hjhj","hujk"];
+array_splice($a51,1,2);
+echo"<pre>";
+print_r($a51);
+echo"</pre>";
+
+//index no -ve
+$a75=["jskj","kajs","jkj"];
+array_splice($a75,-1,2);
+echo"<pre>";
+print_r($a75);
+echo"</pre>";
+
+//length -ve
+$a64=["jskj","kajs","jkj"];
+array_splice($a64,1,-1);
+echo"<pre>";
+print_r($a64);//
+echo"</pre>";
+
+
+$a63=["jskj","kajs","jkj","jshdjh","jhajsh","jhashs"];
+array_splice($a63,1,-2);
+echo"<pre>";
+print_r($a63);//
+echo"</pre>";
+
+
+//2 parameters
+$q89=["hjh","jkj","uiu","hhj"];
+array_splice($q89,3);
+echo"<pre>";
+print_r($q89);
+echo"</pre>";
+
+//-ve index no
+$q90=["hjhjh","jkjk","uiui"];
+array_splice($q90,-2);
+echo"<pre>";
+print_r($q90);
+echo"</pre>";
+?>
 
 
 

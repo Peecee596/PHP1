@@ -33,6 +33,8 @@ echo "<br>";
 	//array_splice($a,0,1);//deletes 1st(start and 1 (lenght)records deleted) 
 	print_r($a);
 echo "<br>";
+	$a=["Sanjay","Aman","Rehman"];
+	$b=["Orange","Apple"];
 
 	//array_splice($a,1,-1);//between 1 and -1 including 1 its deletes sanjay and rehman//it picks the lengths
 	print_r($a);
