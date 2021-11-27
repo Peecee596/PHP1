@@ -1,7 +1,6 @@
 //Fetch all 3 Inputs
-const addDisplay=document.querySelector(".display");
 const addButton=document.querySelector(".addButton");
-var inputFirst=document.querySelector(".inputtext")
+var inputFirst=document.querySelector(".inputtext");
 let dateFirst=document.querySelector('input[type="date"]');
 
 //Fetch the Container
@@ -9,10 +8,11 @@ const container=document.querySelector('.dataContainer');
 
 //class and constructor
 class reminder{
-
+    
     constructor(reminderName,dateNew){
 
-        this.createReminder(reminderName,dateNew)
+        this.createReminder(reminderName,dateNew);
+   
     }
 //create reminder
 createReminder(reminderName,dateNew){
@@ -34,7 +34,7 @@ date.value=dateNew;
 date.disabled=true;
 date.classList.add("card-text");
 date.classList.add("input1");
-date.style.width='13rem';
+date.style.width='24rem';
 date.style.margin='5px';
 date.style.paddingBottom="7px";
 
@@ -47,16 +47,22 @@ input.value=reminderName;
 input.disabled=true;
 input.classList.add("card-text");
 input.classList.add("input2");
-input.style.width='13rem';
+input.style.width='24rem';
 input.style.margin='5px';
 // input.style.paddingTop="5px";
 input.style.paddingBottom="7px";
-
+//console.log(input.value)
 //Append input box
 itemBox.appendChild(input)
 
 
+let buttonBox=document.createElement("div")
+buttonBox.classList.add("buttonBox")
+// buttonBox.style.border='1px solid green'
+buttonBox.style.marginBottom="10px"
 
+//Append button box
+itemBox.appendChild(buttonBox)
 
 //create edit button
 let editButton=document.createElement("button");
@@ -71,7 +77,7 @@ editButton.style.marginLeft="6px";
 editButton.innerHTML="EDIT"
 
 //Append edit button
-itemBox.appendChild(editButton)
+buttonBox.appendChild(editButton)
 
 //create delete button
 let removeButton=document.createElement("button");
@@ -85,11 +91,13 @@ removeButton.style.marginLeft="6px";
 removeButton.innerHTML="DELETE"
 
 //Append delete button
-itemBox.appendChild(removeButton)
+buttonBox.appendChild(removeButton)
 
 //Add eventlistener
 editButton.addEventListener('click',()=>{
-    this.edit(input);
+   this.edit(input)
+    this.edit(date)
+    
 })
 
 //Add eventlistener 
@@ -101,41 +109,64 @@ removeButton.addEventListener('click',()=>{
 //edit reminder
 edit(reminderitem){
     reminderitem.disabled=!reminderitem.disabled
+    console.log(reminderitem.value);
 }
 //delete reminder
 delete(reminderitem){
     container.removeChild(reminderitem)
 }
+//create arrays
 
 }
-
 
 //check whether the reminder and date is entered or not
 function check(){
     if(inputFirst.value !='' && dateFirst.value !='' )
     {
-        new reminder(inputFirst.value,dateFirst.value);        
-        inputFirst.value="";
-        dateFirst.value="";
-        
+        new reminder(inputFirst.value,dateFirst.value); 
+
+       
     }
 }
 
-values = [];
+// function update(){
+//     if()
+// }
+const values = [];
 
 function addRecord() {
   //var inp = document.getElementById('inputtext');
   var inp=inputFirst.value;
-  values.push(inp.value);
-  inp.value = "";  
+  var dat=dateFirst.value;
+  values.push([dat,inp]);
+  inp.value = ""; 
+  inputFirst.value="";
+  dateFirst.value=""; 
+  console.log(values)
+
+
+  const d= new Date();
+var ds=d.getDay()+"-"+d.getMonth()+"-"+d.getFullYear();
+console.log(ds)
+for(var i=0;i<values.length;i++)
+{
+    if(values[i][0]==ds)
+    {
+        console.log(values[i][0],values[i][1]);
+    }
 }
 
-// function displayRecord() {
-//     let para=document.createElement("p");
-//     para.classList.add("graph")
-//     document.querySelector(".graph").innerHTML = values;
-//   }
+}
 //check the inputs and date while clicking on adding
 addButton.addEventListener("click",check);
 addButton.addEventListener("click",addRecord);
-// addDisplay.addEventListener("click",displayRecord);
+
+// const d= new Date();
+// var ds=d.getDay()+d.getMonth()+d.getFullYear();
+// for(var i=0;i<values.length;i++)
+// {
+//     if(values[i][0]==ds)
+//     {
+//         document.write(values[i][0],values[i][1]);
+//     }
+// }
